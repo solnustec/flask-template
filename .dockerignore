@@ -1,0 +1,40 @@
+#
+# Python
+#
+*.sqlite
+
+#
+# Folders
+#
+media
+static
+
+# Ignorar archivos de configuración local
+back.env
+local.env
+
+# Ignorar archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar dependencias de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Ignorar carpetas de entornos virtuales
+venv/
+env/
+
+# Ignorar archivos de control de versiones
+.git/
+.gitignore
+
+# Ignorar archivos generados por editores de texto
+.vscode/
+.idea/
+*.swp
+*.swo
+

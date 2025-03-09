@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    container_name: flask-template-app
+    image: solnustec.com/flask-template:latest
+    restart: always
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "5050:5000"
+    volumes:
+      - ./:/src
