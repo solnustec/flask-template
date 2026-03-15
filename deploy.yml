@@ -3,5 +3,3 @@ app:
   name: flask-template
   type: python
   framework: flask
-  dockerfile: Dockerfile
-  context: . 
