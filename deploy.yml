@@ -3,10 +3,8 @@ app:
   name: flask-template
   type: python
   framework: flask
-ci:
-  runTests: false
-
 deployment:
   staging: solnus-staging
   production: solnus-staging
-  
+ci:
+  runTests: false
