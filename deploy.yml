@@ -8,3 +8,4 @@ deployment:
   production: solnus-staging
 ci:
   runTests: false
+
