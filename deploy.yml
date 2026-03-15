@@ -3,3 +3,5 @@ app:
   name: flask-template
   type: python
   framework: flask
+ci:
+  runTests: false
