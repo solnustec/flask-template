@@ -5,6 +5,6 @@ app:
   framework: flask
 deployment:
   staging: solnus-staging
-  production: solnus-staging
+  production: solnus-production
 ci:
   runTests: false
