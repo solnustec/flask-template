@@ -24,4 +24,4 @@ def create_server():
 httpServer = create_server()
 
 if __name__ == "__main__":
-    httpServer.run(host="0.0.0.0", port=5000, debug=httpServer.config["DEBUG"])
+    httpServer.run(host="0.0.0.0", port=8080, debug=httpServer.config["DEBUG"])

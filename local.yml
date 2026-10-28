@@ -4,11 +4,13 @@ services:
     container_name: flask-template-app
     image: solnustec.com/flask-template:latest
     restart: always
+    # Flask dev server with reload; the image runs gunicorn
+    command: python main.py
     env_file:
       - .env
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
-      - "5050:5000"
+      - "8080:8080"
     volumes:
       - ./:/src

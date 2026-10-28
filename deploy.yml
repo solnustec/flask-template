@@ -1,10 +1,11 @@
 structure: standalone
+team: devops
 app:
   name: flask-template
   type: python
   framework: flask
-deployment:
-  staging: solnus-staging
-  production: solnus-production
+  role: backend
 ci:
-  runTests: false
+  # Lint (make pre-push: flake8, black, isort) and tests; setup.cfg runs pytest with
+  # -n auto (pytest-xdist), so both need requirements-dev.txt
+  testCmd: pip install -r requirements-dev.txt && make pre-push && python -m pytest -v --tb=short
