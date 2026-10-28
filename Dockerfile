@@ -1,18 +1,22 @@
-FROM python:3.10-alpine
+FROM python:3.12-slim
 
-RUN python --version
+# No .pyc: the root filesystem is read-only in the cluster (only /tmp is writable)
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
-# Install make
-RUN apk add --no-cache make bash
-
-COPY . /src/
 WORKDIR /src
 
-# Install Python dependencies
-RUN pip install -U pip
-RUN pip install -r requirements-dev.txt
+# Runtime dependencies only; dev tools (pytest, black...) stay out of the image
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
+COPY main.py .
+COPY app ./app
 
-# Comando para ejecutar la aplicación
-CMD ["python", "app.py"]
+# Numeric non-root user: the cluster enforces runAsNonRoot
+USER 10001
+
+# Every container listens on 8080
+EXPOSE 8080
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "2", "--worker-tmp-dir", "/tmp", "--access-logfile", "-", "main:httpServer"]

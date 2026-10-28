@@ -1,10 +1,10 @@
 structure: standalone
+team: devops
 app:
   name: flask-template
   type: python
   framework: flask
-deployment:
-  staging: solnus-staging
-  production: solnus-production
+  role: backend
 ci:
-  runTests: false
+  # setup.cfg runs pytest with -n auto (pytest-xdist), which lives in requirements-dev.txt
+  testCmd: pip install -r requirements-dev.txt && python -m pytest -v --tb=short
