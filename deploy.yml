@@ -6,5 +6,6 @@ app:
   framework: flask
   role: backend
 ci:
-  # setup.cfg runs pytest with -n auto (pytest-xdist), which lives in requirements-dev.txt
-  testCmd: pip install -r requirements-dev.txt && python -m pytest -v --tb=short
+  # Lint (make pre-push: flake8, black, isort) and tests; setup.cfg runs pytest with
+  # -n auto (pytest-xdist), so both need requirements-dev.txt
+  testCmd: pip install -r requirements-dev.txt && make pre-push && python -m pytest -v --tb=short
