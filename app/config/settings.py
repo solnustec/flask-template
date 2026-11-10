@@ -10,7 +10,7 @@ class Settings(BaseSettings):
 
     NAME: str = "@solnustec.com/flask-template"
     DESCRIPTION: str = "Write a simple description"
-    VERSION: str = "0.1.0-SNAPSHOT"
+    VERSION: str = "0.1.1-SNAPSHOT"
     AUTHOR: str = "Solnustec"
     KEYWORDS: list = []
 
